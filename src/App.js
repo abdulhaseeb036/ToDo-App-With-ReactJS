@@ -1,8 +1,11 @@
 import React from 'react';
 import './App.css';
+import firebase from './config/firebase.js';
 
 
 
+
+// class component
 class App extends React.Component {
   constructor() {
     super()
@@ -11,15 +14,17 @@ class App extends React.Component {
       value: ''
     }
   };
-  
+
+// Add ToDo 
   add_todo = () =>  {
-    let obj = {title: this.state.value}; 
+    var obj = {title: this.state.value}; 
     this.setState({ 
       todos: [...this.state.todos,obj],
       value: ''   
   });
  }
-  
+
+// Delete ToDo 
  deleteitem = (index) => {
         this.state.todos.splice(index, 1);
         this.setState({
@@ -27,7 +32,8 @@ class App extends React.Component {
         })
  }
 
- edititem = (index) => {
+// Update ToDo
+ edititem = (index, val) => {
    this.state.todos[index].edit = true;
    this.setState({
      todos: this.state.todos
@@ -42,38 +48,58 @@ class App extends React.Component {
   //  });
  }
 
+
+// Update ToDo
  handlechange = (e, index) => {
-      console.log(this.state.todos);
-  //  console.log(this.state.todos[index].title);
+
    this.state.todos[index].title = e.target.value;
    this.setState({
      todos: this.state.todos
    }) 
  }
 
- 
+ Updateuccess = (index) => {
+  this.state.todos[index].edit = false;
+  this.setState({
+    todos: this.state.todos
+  })
+ }
+
+
   render() {
+// Some JavaScript In Render
     let {todos, value} = this.state;
+
     return (
+      // In ReTurn We write JSX
       <div>
         <input onChange={(e)=> this.setState ({value: e.target.value})} value={value} placeholder="Enter ToDo" type="text"/>
         <button onClick={this.add_todo} className="additembn" >Add Item</button>
         <ul>
           {todos.map((v,i)=>{         
           return <li key={i}>
-            {v.edit? <input type="text" onChange={(e) => this.handlechange(i)} /> : v.title}
+            {v.edit? <input type="text" onChange={(e) => this.handlechange(e,i)} /> : v.title}
             <button className="dlbut" onClick={() => this.deleteitem(i)}>Delete</button> 
-          {v.edit? <button className="update">Update</button> : <button className="editbut" onClick={() => this.edititem(i)}>Edit</button>}
+          {v.edit? <button className="update" onClick={() =>this.Updateuccess(i)}>Update</button> : <button className="editbut" onClick={() => this.edititem(i, v.title)}>Edit</button>}
           </li>
           })}
         </ul>
         
       </div>
 
-    )
-  }
+    ) //Retun />
+  }   // Render />
 
-}
+} //class Component />
+
+export default App;
+
+
+
+
+
+
+
 
 
 
@@ -98,4 +124,4 @@ class App extends React.Component {
 //   );
 // }
 
-export default App;
+
