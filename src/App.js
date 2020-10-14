@@ -48,10 +48,12 @@ class App extends React.Component {
   //  });
  }
 
+
+// Delete ALL
  deleteAll = () => {
    this.state.todos.map((v,i) => {
-       v = "";
-     });
+        this.state.todos.splice(v);
+   })
    this.setState({
      todos: this.state.todos
    })
@@ -87,19 +89,18 @@ class App extends React.Component {
         <input onChange={(e)=> this.setState ({value: e.target.value})} value={value} placeholder="Enter ToDo" type="text"/>
         <button onClick={this.add_todo} className="additembn" >Add Item</button>
       
-          <button onClick={this.deleteAll} className="deleteallbn">Delete</button>
+          <button onClick={this.deleteAll} className="deleteallbn">Delete All</button>
 
             
           {todos.map((v,i) => {         
-              return (
-              <ul>
+              return <ul id="ul">
                  <li key={i}>
             {v.edit? <input type="text" onChange={(e) => this.handlechange(e,i)} /> : v.title}
             <button className="dlbut" onClick={() => this.deleteitem(i)}>Delete</button> 
           {v.edit? <button className="update" onClick={() =>this.Updateuccess(i)}>Update</button> : <button className="editbut" onClick={() => this.edititem(i, v.title)}>Edit</button>}
           </li>
         </ul>
-              )
+              
           })}
          
         
