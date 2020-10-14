@@ -17,7 +17,7 @@ class App extends React.Component {
 
 // Add ToDo 
   add_todo = () =>  {
-    var obj = {title: this.state.value}; 
+    let obj = {title: this.state.value}; 
     this.setState({ 
       todos: [...this.state.todos,obj],
       value: ''   
@@ -48,6 +48,17 @@ class App extends React.Component {
   //  });
  }
 
+ deleteAll = () => {
+   this.state.todos.map((v,i) => {
+       v = "";
+     });
+   this.setState({
+     todos: this.state.todos
+   })
+ }
+
+
+
 
 // Update ToDo
  handlechange = (e, index) => {
@@ -75,15 +86,22 @@ class App extends React.Component {
       <div>
         <input onChange={(e)=> this.setState ({value: e.target.value})} value={value} placeholder="Enter ToDo" type="text"/>
         <button onClick={this.add_todo} className="additembn" >Add Item</button>
-        <ul>
-          {todos.map((v,i)=>{         
-          return <li key={i}>
+      
+          <button onClick={this.deleteAll} className="deleteallbn">Delete</button>
+
+            
+          {todos.map((v,i) => {         
+              return (
+              <ul>
+                 <li key={i}>
             {v.edit? <input type="text" onChange={(e) => this.handlechange(e,i)} /> : v.title}
             <button className="dlbut" onClick={() => this.deleteitem(i)}>Delete</button> 
           {v.edit? <button className="update" onClick={() =>this.Updateuccess(i)}>Update</button> : <button className="editbut" onClick={() => this.edititem(i, v.title)}>Edit</button>}
           </li>
-          })}
         </ul>
+              )
+          })}
+         
         
       </div>
 
