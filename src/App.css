@@ -1,38 +1,87 @@
-.App {
-  text-align: center;
+/* Auther = Haseeb Alam Rafiq */
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #f50057;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.reactdiv {
+  background-color: #f50057;
+  
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  text-align: center;
+  background-color: #f50057; 
+}
+.card {
+  margin: 0 auto;
+  width: 80%;
+  background-color: #37474f !important;
+  color: #fafafa;
+  margin-top: 20px !important;
+  border-top: none !important;
+}
+.card-header {
+  background-color: #37474f !important;
+  color: #fafafa;
+
+
+}
+.card-body {
+  background-color:#37474f !important;
+  color: #fafafa;
+}
+.additembn {
+  width: 100%;
+}
+.deleteallbn {
+  width: 100%;
+}
+.inputaddtodo {
+  width: 100%;
+  color: #fafafa !important;
+  border-bottom: #f50057 solid !important;
+  border-radius: 5% !important;
+  border-bottom-width: 2px !important;
+}
+.inputaddtodo label {
+  color: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+
+.todolistmaindiv {
+  margin: 0 auto;
+  background-color: #37474f !important;
+  color: #fafafa;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+Icon {
+  color: #fafafa !important;
+}
+#outlined-secondary {
+  color: #fafafa !important;
+  border-bottom:  #fafafa !important;
+}
+
+
+
+@media only screen and (max-width: 400px) and (min-width: 300px){
+  .card {
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+  .inputaddtodo {
+    width: 100%;
+  
+  }
+  
+  .additembn {
+    width: 100%;
+  }
+  .deleteallbn {
+    width: 100%;
   }
 }
