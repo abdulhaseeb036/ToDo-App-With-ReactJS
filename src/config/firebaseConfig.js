@@ -1,7 +1,7 @@
-import * as firebase from 'firebase/app';
-import 'firebase/database';
+import * as firebase from 'firebase';
 
-var firebaseConfig = {
+
+var config = {
     apiKey: "AIzaSyAUeuWAAbn03jqshH_FQIYc56gGO0h8x50",
     authDomain: "todo-app-react-coded.firebaseapp.com",
     databaseURL: "https://todo-app-react-coded.firebaseio.com",
@@ -12,4 +12,4 @@ var firebaseConfig = {
     measurementId: "G-046JG5LNWB"
   };
   // Initialize Firebase
- export default firebase.initializeApp(firebaseConfig);
+ export default firebase.initializeApp(config);

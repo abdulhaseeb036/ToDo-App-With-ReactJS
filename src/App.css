@@ -1,21 +1,24 @@
 /* Auther = Haseeb Alam Rafiq */
 
-html, body {
+html, 
+body {
   margin: 0px;
   padding: 0px;
   background-color: #f50057;
-
+  background-attachment: fixed;
+  background-repeat: no-repea;
+  overflow-x: hidden;
 }
-
-
 .reactdiv {
   background-color: #f50057;
-  
+  overflow-x: hidden;
 }
 .wrapper {
   display: flex;
   text-align: center;
   background-color: #f50057; 
+  overflow-x: hidden;
+
 }
 .card {
   margin: 0 auto;
@@ -24,16 +27,19 @@ html, body {
   color: #fafafa;
   margin-top: 20px !important;
   border-top: none !important;
+  overflow-x: hidden;
+
 }
 .card-header {
   background-color: #37474f !important;
   color: #fafafa;
-
-
+  overflow-x: hidden;
 }
 .card-body {
   background-color:#37474f !important;
   color: #fafafa;
+  overflow-x: hidden;
+
 }
 .additembn {
   width: 100%;
@@ -56,23 +62,66 @@ html, body {
 .todolistmaindiv {
   margin: 0 auto;
   background-color: #37474f !important;
-  color: #fafafa;
+  color: #926b6b;
+}
+.todolistitem {
+  overflow-x: scroll !important;
+  cursor: w-resize;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.todolistitem::-webkit-scrollbar {
+  height: 4px !important;
+  /* background-color: #fff !important; */
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.todolistitem {
+-ms-overflow-style: initial !important;  /* IE and Edge */
+scrollbar-width: 5px !important;  /* Firefox */
 }
 
 Icon {
   color: #fafafa !important;
+  cursor: pointer !important;
+
 }
 #outlined-secondary {
   color: #fafafa !important;
   border-bottom:  #fafafa !important;
 }
-
+.editbut {
+  color: #fff !important;
+  font-size: 32px !important;
+  cursor: pointer !important;
+  margin-left: 20px !important;
+  margin-top: 5px !important;
+}
+.todolistpaper {
+  background-color: #37474f !important;
+  color: #fff !important;
+}
+.dlbut {
+  color: rgba(240, 0, 0, 0.7) !important;
+  font-size: 32px !important;
+  cursor: pointer !important;
+  /* margin-left: px !important; */
+  margin-top: 5px !important;
+}
+li {
+  font-size: 30px !important;
+  color: #fff;
+}
+ul > li {
+  text-decoration: none !important;
+}
+.update {
+  color: white !important;
+  background-color: rgba(0, 0, 255, 0.6) !important;
+}
 
 
 @media only screen and (max-width: 400px) and (min-width: 300px){
-  .card {
-    width: 100%;
-  }
+
   .inputaddtodo {
     width: 100%;
   
@@ -84,4 +133,11 @@ Icon {
   .deleteallbn {
     width: 100%;
   }
+  .todolistmaindiv {
+    width: 300px !important;
+  }
+  /* .todolistitem {
+    display: flex;
+    flex-direction: row;
+  } */
 }
