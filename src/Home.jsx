@@ -6,13 +6,7 @@ import { Box,Typography, Button, Paper, Icon, TextField, Grid } from '@material-
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
-// import Approuter from './config/router';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import { fade, makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import InputBase from '@material-ui/core/InputBase';
-import { Style } from '@material-ui/icons';
-
-
+import {Link} from 'react-router-dom';
 
 /////////-------- CLASS COMPONENT ----------//////////////////
 class Home extends React.Component {
@@ -75,12 +69,21 @@ class Home extends React.Component {
     })
   }
 
-  aboutbtn = (event) => {
-    console.log("haseeb click ho rha");
-    // event.target.className.add()
-      
+  // Menu Pages herrarchey Routing
+  gohome = () => {
+    this.props.history.push('/');
   }
+  goabout = () => {
+    this.props.history.push('/about');
+  }
+ 
 
+  // componentDidMount initially run when render runs 
+  //render run ho gata UI run hogati phir componentDidMount chlta is
+  // may ham apna Data manwaty API sy like firebase.
+ componentDidMount() {
+   console.log("componentdidmount");
+ }
 
   render() {
     let { todos, value } = this.state;
@@ -91,9 +94,8 @@ class Home extends React.Component {
         <AppBar>
           <Toolbar>
             <Typography style={{flexGrow: 1}}>Haseeb Developer</Typography>
-            <Button onClick={this.homebtn} startIcon={<HomeRoundedIcon />} variant="contained" color="secondary">Home</Button>
-            <Button onClick={(e) => this.aboutbtn(e)} color="inherit">About Us</Button>
-            <Button color="inherit">Contact Us</Button>
+            <Button onClick={this.gohome}  startIcon={<HomeRoundedIcon />} variant="contained" color="secondary">Home</Button>
+            <Button onClick={this.goabout}  color="inherit">About Us</Button>
           </Toolbar>
         </AppBar>
         <div className="mainwrappper">
